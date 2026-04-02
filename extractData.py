@@ -7,7 +7,7 @@ def unpickle(file):
         dict = pickle.load(fo, encoding='bytes')
     return dict
 
-def extract_images(dataset_path="/Users/lukewalsdorf/git/object-recognition/cifar-10-batches-py"):
+def extract_images(dataset_path="cifar-10-batches-py"):
     """
     Retrieves all the data from the cifar-10-batches-py folder and returns an array with all the images.
     """
