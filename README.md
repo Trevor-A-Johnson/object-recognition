@@ -22,11 +22,13 @@ CIFAR-10 consists of 60,000 32x32 color images across 10 classes (airplane, auto
 | File | Description |
 |---|---|
 | `cifar10_training.ipynb` | Main notebook — data loading, training, evaluation, plots |
+| `cifar10_training.py` | Script version of the notebook — same functionality, runnable from the terminal |
 | `extractData.py` | Utility to load raw CIFAR-10 batch files |
 | `simple_cnn.pth` | Saved SimpleCNN weights |
 | `deep_cnn.pth` | Saved DeepCNN weights |
 | `training_curves.png` | Loss curves for both models |
 | `confusion_matrices.png` | Normalized confusion matrices for both models |
+| `confidence_intervals.png` | Bar chart of model accuracy with 95% confidence intervals |
 
 ## Setup
 
@@ -36,7 +38,24 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Then open `cifar10_training.ipynb` in VS Code or JupyterLab.
+## Running
+
+### Notebook (`cifar10_training.ipynb`)
+Open in VS Code or JupyterLab and run cells top to bottom. To skip training and use saved weights, run sections 1–4 and 7–12 (skip sections 5–6).
+
+### Script (`cifar10_training.py`)
+
+Train from scratch (saves weights to `simple_cnn.pth` / `deep_cnn.pth`):
+```bash
+python3 cifar10_training.py --train
+```
+
+Evaluate using saved weights (skips training):
+```bash
+python3 cifar10_training.py
+```
+
+Both modes run evaluation, plot confidence intervals, confusion matrices, and per-class accuracy. Training curves are only produced when `--train` is passed.
 
 ## Dataset
 
