@@ -174,7 +174,7 @@ def plot_confidence_intervals(simple_acc, simple_ci, deep_acc, deep_ci):
                 f'{acc:.2%}\n±{ci:.4f}', ha='center', va='bottom', fontsize=10)
     plt.tight_layout()
     plt.savefig('confidence_intervals.png', dpi=150)
-    plt.show()
+    plt.close()
 
 
 def plot_training_curves(simple_history, deep_history):
@@ -187,7 +187,7 @@ def plot_training_curves(simple_history, deep_history):
     plt.legend()
     plt.tight_layout()
     plt.savefig('training_curves.png', dpi=150)
-    plt.show()
+    plt.close()
 
 
 def plot_confusion_matrices(simple_acc, simple_ci, simple_preds, simple_labels,
@@ -204,7 +204,7 @@ def plot_confusion_matrices(simple_acc, simple_ci, simple_preds, simple_labels,
     plt.suptitle('Normalized Confusion Matrices (row = true class)', fontsize=13)
     plt.tight_layout()
     plt.savefig('confusion_matrices.png', dpi=150)
-    plt.show()
+    plt.close()
 
 
 def print_per_class_accuracy(simple_preds, simple_labels, deep_preds, deep_labels):
@@ -274,6 +274,6 @@ def main():
 
 
 if __name__ == '__main__':
-    sys.argv = ['cifar10_training.py', '--train']
-    # sys.argv = ['cifar10_training.py']  # run this if you already have trained weights
+    # sys.argv = ['cifar10_training.py', '--train']
+    sys.argv = ['cifar10_training.py']  # run this if you already have trained weights
     main()
